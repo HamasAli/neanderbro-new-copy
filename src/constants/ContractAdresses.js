@@ -1,0 +1,19 @@
+export const ContractAddresses = {
+  // NeanderBROS: "0xcB124CF226f045fa49b1793031C79DA517387f7f",
+  // NeanderGal: "0xbcA7398647cD7f2796a0e639FEf4Db66F3233118",
+
+  //Used in Polygon
+  NeanderBROS: "0xcB124CF226f045fa49b1793031C79DA517387f7f",
+  NeanderGal: "0xbcA7398647cD7f2796a0e639FEf4Db66F3233118",
+  Staking: "0x48B84Fe3b08dC0F6aF8aFfCD5D5b876c74c428D8",
+  
+  //Used for testing on sepolia
+  // NeanderBROS: "0xdFe20A8c31E3aD85033Fbe85857431DA55046Be2",
+  // NeanderGal: "0x2551339e344262B568EbE2c19B90E7182ED0a0E5",
+  // Staking: "0x175Cb9Ad795bB21f0662d3C3BeD0Bd6d46D67054",
+
+  //Mustafa Bhai Contract Address
+  // NeanderBROS: "0xcB124CF226f045fa49b1793031C79DA517387f7f",
+  // NeanderGal: "0xbcA7398647cD7f2796a0e639FEf4Db66F3233118",
+  //Staking: "0x67D279D04a0503651AAC43Bc0983723fcEfE21B1",
+};

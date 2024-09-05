@@ -1,0 +1,29 @@
+.swiper-container {
+  perspective: 1500px;
+}
+
+.swiper-slide {
+  transition: transform 1s ease;
+}
+
+.swiper-slide-active {
+  transform: rotateY(0deg) scale(1.2);
+}
+
+.swiper-slide-prev {
+  transform: scale(0.8);
+}
+
+.swiper-slide-next {
+  transform: scale(0.8) translateX(-8.5%);
+}
+
+@media screen and (max-width: 768px) {
+  .swiper-slide-active {
+    transform: rotateY(0deg) scale(1);
+  }
+
+  .swiper-slide-next {
+    transform: rotateY(0deg) scale(1) translateX(0) translateY(0);
+  }
+}

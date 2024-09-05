@@ -1,0 +1,122 @@
+/*Root Element*/
+:root {
+  /* Colors */
+  --yellow-color: #ffc107;
+  --blue-color: #00a3ff;
+  --dark-blue-color: #144272;
+  --dark-color: #242435;
+  --white-color: #ffffff;
+  --gray-color: #e3e3e3;
+  --toaster-bg: #000f1f;
+  --green: #0fd29f;
+  --greenborder: #008b8c;
+
+  /* Fonts */
+  --montserrat: Montserrat, sans-serif;
+  --helvetica: Helvetica, sans-serif;
+  --privacyFont: privacyFont, sans-serif;
+
+  /* Font-Sizes */
+  --h1: 3.125rem; /*50px*/
+  --h2: 2.625rem; /*42px*/
+  --h3: 2rem; /*32px*/
+  --h4: 1.5rem; /*24px*/
+  --h5: 1.25rem; /*20px*/
+  --h6: 1rem; /*16px*/
+  --small-body: 0.875rem; /*14px*/
+  --smallest: 0.75rem; /*12px*/
+}
+/*Global CSS*/
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  overflow-x: hidden;
+  background-color: #000f1f;
+}
+
+/*Font Families Import*/
+@font-face {
+  font-family: "Montserrat";
+  src: local("Montserrat"), url("./fonts/Montserrat.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Helvetica";
+  src: local("Helvetica"), url("./fonts/Helvetica.ttf") format("truetype");
+}
+@font-face {
+  font-family: "privacyFont";
+  src: local("privacyFont"), url("./fonts/Neander-Font.TTF") format("truetype");
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--montserrat);
+}
+
+p,
+span {
+  font-family: var(--helvetica);
+}
+
+.outlined-yellow-text {
+  display: inline-block;
+  color: transparent;
+  -webkit-text-stroke: 1px var(--yellow-color);
+}
+.outlined-green-text {
+  display: inline-block;
+  color: var(--green);
+  -webkit-text-stroke: 2px var(--greenborder);
+}
+.Toastify__zoom-enter {
+  width: 20%;
+}
+.Toastify__progress-bar--animated {
+  width: 85%;
+  margin: 0px 0px 5px 15px;
+}
+.Toastify__progress-bar--success {
+  background-color: var(--yellow-color);
+}
+.Toastify__progress-bar--error {
+  background-color: #ff003d;
+}
+
+/*Media Queries for fonts*/
+@media (min-width: 768px) and (max-width: 1023px) {
+  :root {
+    --h1: 2.5rem; /*50px*/
+    --h3: 1.825rem; /*32px*/
+    --h4: 1.5rem; /*24px*/
+    --h5: 1.25rem; /*20px*/
+    --h6: 1rem; /*16px*/
+    --small-body: 0.875rem; /*14px*/
+    --smallest: 0.75rem; /*12px*/
+  }
+}
+
+@media (max-width: 767px) {
+  :root {
+    --h1: 2rem; /* 32px */
+    --h2: 1.813rem; /*29px*/
+    --h3: 1.625rem; /* 26px */
+    --h4: 1.25rem; /* 20px */
+    --h5: 1.25rem; /* 20px */
+    --h6: 1rem; /* 16px */
+    --small-body: 0.875rem; /* 14px */
+    --smallest: 0.75rem; /* 12px */
+  }
+}
+
+::-webkit-scrollbar {
+  width: 0px;
+}
