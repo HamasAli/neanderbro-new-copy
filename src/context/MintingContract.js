@@ -14,8 +14,8 @@ export const StateMintingContextProvider = ({ children }) => {
 
   const web3Pro = walletClient && chainIds.includes(chain?.id)
     ? walletClient
-    : "https://polygon-mainnet.infura.io/v3/7a6a4b893bfe4325aed8a527215570f6";
-    // : "https://sepolia.infura.io/v3/72b85b515f1a4c98b2667acf92b6276b";
+    // : "https://polygon-mainnet.infura.io/v3/7a6a4b893bfe4325aed8a527215570f6";
+    : "https://sepolia.infura.io/v3/72b85b515f1a4c98b2667acf92b6276b";
 
   const web3 = new Web3(web3Pro);
 
