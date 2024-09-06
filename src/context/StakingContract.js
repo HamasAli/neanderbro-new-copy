@@ -103,7 +103,7 @@ export const StateStakingContextProvider = ({ children }) => {
     try {
       const response = await StakingInstance.methods
         .stake(array)
-        .send({ from: senderWalletAddress, gasPrice: Number(gasFee + gasFee / 3) });
+        .send({ from: senderWalletAddress, gasPrice: Number(gasFee + gasFee) });
       return response;
     } catch (error) {
       throw error;
@@ -114,9 +114,11 @@ export const StateStakingContextProvider = ({ children }) => {
     try {
       const response = await StakingInstance.methods
         .stakeNeanderGal(unit)
-        .send({ from: senderWalletAddress, gasPrice: Number(gasFee + gasFee / 3) });
+        .send({ from: senderWalletAddress, gasPrice: Number(gasFee + gasFee) });
+      console.log("🚀 ~ StakeNG ~ response:", response)
       return response;
     } catch (error) {
+      console.log("🚀 ~ StakeNG ~ error:", error)
       throw error;
     }
   };
@@ -125,7 +127,7 @@ export const StateStakingContextProvider = ({ children }) => {
     try {
       const response = await StakingInstance.methods
         .unstakeNeanderGal(unit)
-        .send({ from: senderWalletAddress, gasPrice: Number(gasFee + gasFee / 3) });
+        .send({ from: senderWalletAddress, gasPrice: Number(gasFee + gasFee) });
       return response;
     } catch (error) {
       throw error;
@@ -136,7 +138,7 @@ export const StateStakingContextProvider = ({ children }) => {
     try {
       const response = await StakingInstance.methods
         .claim(Id)
-        .send({ from: senderWalletAddress, gasPrice: Number(gasFee + gasFee / 3) });
+        .send({ from: senderWalletAddress, gasPrice: Number(gasFee + gasFee) });
       return response;
     } catch (error) {
       throw error;
@@ -147,7 +149,7 @@ export const StateStakingContextProvider = ({ children }) => {
     try {
       const response = await StakingInstance.methods
         .claimRewardAndUnstake(Id)
-        .send({ from: senderWalletAddress, gasPrice: Number(gasFee + gasFee / 3) });
+        .send({ from: senderWalletAddress, gasPrice: Number(gasFee + gasFee) });
       return response;
     } catch (error) {
       throw error;
@@ -169,7 +171,7 @@ export const StateStakingContextProvider = ({ children }) => {
     try {
       const response = await StakingInstance.methods
         .emergencyUnstake(Id)
-        .send({ from: senderWalletAddress, gasPrice: Number(gasFee + gasFee / 3) });
+        .send({ from: senderWalletAddress, gasPrice: Number(gasFee + gasFee) });
       return response;
     } catch (error) {
       throw error;

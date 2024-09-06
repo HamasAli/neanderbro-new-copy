@@ -77,7 +77,7 @@ export const StateStakingContextProviderV1 = ({ children }) => {
         try {
             const response = await StakingInstanceV1.methods
                 .claimRewardAndUnstake(Id)
-                .send({ from: senderWalletAddress, gasPrice: Number(gasFee + gasFee / 3) });
+                .send({ from: senderWalletAddress, gasPrice: Number(gasFee + gasFee) });
             return response;
         } catch (error) {
             throw error;
@@ -110,7 +110,7 @@ export const StateStakingContextProviderV1 = ({ children }) => {
         try {
             const response = await StakingInstanceV1.methods
                 .unstakeNeanderGal(unit)
-                .send({ from: senderWalletAddress, gasPrice: Number(gasFee + gasFee / 3) });
+                .send({ from: senderWalletAddress, gasPrice: Number(gasFee + gasFee) });
             return response;
         } catch (error) {
             throw error;
@@ -121,7 +121,7 @@ export const StateStakingContextProviderV1 = ({ children }) => {
         try {
             const response = await StakingInstanceV1.methods
                 .emergencyUnstake(Id)
-                .send({ from: senderWalletAddress, gasPrice: Number(gasFee + gasFee / 3) });
+                .send({ from: senderWalletAddress, gasPrice: Number(gasFee + gasFee) });
             return response;
         } catch (error) {
             throw error;
