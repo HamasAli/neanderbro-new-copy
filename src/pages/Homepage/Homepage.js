@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import MintIsLiveSection from "../../sections/Home/mintIsLiveSection/MintIsLiveSection";
+import MintNowSection from "../../sections/Home/mintNowSection/MintNowSection";
 import DinasourSection from "../../sections/Home/dinasourSection/DinasourSection";
 import AzkalonSection from "../../sections/Home/azkalonSection/AzkalonSection";
 import TribeSection from "../../sections/Home/tribeSection/TribeSection";
@@ -34,6 +35,7 @@ const Homepage = () => {
         >
           <Carousel />
         </div>*/}
+        <MintNowSection />
         <AzkalonSection />
         <TribeSection />
         <DinasourSection />

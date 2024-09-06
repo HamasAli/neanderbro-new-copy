@@ -15,7 +15,7 @@ const SocialCommunity = () => {
               content={"Join Our Community"}
             />
           </div>
-          <div className="flex justify-center gap-2 md:scale-110">
+          <div className="flex justify-center gap-2 md:scale-150">
             {footer.map((item, index) => (
               <Link
                 className="border border-transparent hover:border-blue rounded-2xl"

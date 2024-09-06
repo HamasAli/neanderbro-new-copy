@@ -1,0 +1,50 @@
+@font-face {
+  font-family: "Before Collapse";
+  src: url("../../../fonts/BeforeCollapse.ttf") format("truetype");
+}
+
+.gradient-border {
+  position: relative;
+  /* padding: 1rem; */
+  /* Adjust padding as needed */
+  padding: 2px;
+  background: linear-gradient(145.9deg, #ffc107 0%, #00a3ff 100%);
+  border-radius: 1rem;
+}
+
+.gradient-border-inner {
+  position: relative;
+  background: #000f1f;
+  border-radius: calc(1rem - 2px);
+  z-index: 10;
+}
+
+.gradient-border-inner::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    170deg,
+    rgba(255, 193, 7, 0.3) 0%,
+    rgba(0, 163, 255, 0.3) 100%
+  );
+  border-radius: calc(1rem - 2px);
+}
+/* border: 2px solid;
+
+border-image-source: linear-gradient(145.9deg, #FFC107 0%, #00A3FF 100%); */
+
+.text-stroke {
+  position: relative;
+  text-align: center;
+  font-family: "Before Collapse";
+  font-style: normal;
+  font-weight: 400;
+  line-height: 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  text-transform: uppercase;
+}

@@ -27,21 +27,27 @@ const Header = () => {
 
   return (
     <header
-      className={`fixed w-full transition duration-500 transform backdrop-blur-sm z-50 ${showNavbar ? "translate-y-0" : "-translate-y-[100px]"
-        }`}
+      className={`fixed w-[100vw] max-w-[1440px] transition duration-500 transform backdrop-blur-sm z-50 ${
+        showNavbar ? "translate-y-0" : "-translate-y-[100px]"
+      }`}
     >
-      <div className="flex bg-white bg-opacity-10 rounded-lg items-center justify-between py-1.5 px-3 w-[85%] md:w-[85%] xl:w-[80%] mx-auto mt-5 ">
+      <div className="flex bg-white bg-opacity-10 rounded-lg items-center justify-between py-1.5 px-3 w-[90%] md:w-[85%] xl:w-[80%] mx-auto 2xl:ml-[710px] mt-5 ">
         <div className="flex items-center gap-5 w-[100%]">
           <div className="w-[60%] md:w-[30%] lg:w-[20%] cursor-pointer">
             <Link to="/">
-              <img className="md:w-[116px] md:h-[50px]" src="/assets/2 Collection/logo-bros.webp" alt="logo" />
+              <img
+                className="md:w-[116px] md:h-[50px]"
+                src="/assets/2 Collection/logo-bros.webp"
+                alt="logo"
+              />
             </Link>
           </div>
           <div className="hidden lg:flex lg:justify-center lg:gap-3 xl:gap-6 w-[100%]">
             {header.map((item, index) => (
               <NavLink
-                className={`font-medium text-white font-montserrat hover:scale-[0.99] lg:text-sm xl:text-md  shadow-xl hover:text-yellow ${path === item.link ? "text-yellow font-semibold" : ""
-                  }`}
+                className={`font-medium text-white font-montserrat hover:scale-[0.99] lg:text-sm xl:text-md  shadow-xl hover:text-yellow ${
+                  path === item.link ? "text-yellow font-semibold" : ""
+                }`}
                 key={index}
                 to={item.link}
                 exact="true"

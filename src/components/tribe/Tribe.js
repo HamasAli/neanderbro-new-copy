@@ -14,7 +14,7 @@ const Tribes = ({ heading, text, gif, imageSize, headColor, border }) => {
         <StyledH4Heading fontColor={headColor} content={heading} />
       </div>
       <div className="flex mb-[10%]">
-        <StyledMdText fontColor={"text-gray"} content={text} />
+        <StyledMdText fontColor={"text-gray"} content={text} fontBold={'font-bold'} />
       </div>
     </div>
   );

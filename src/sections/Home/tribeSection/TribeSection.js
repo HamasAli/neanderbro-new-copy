@@ -10,11 +10,11 @@ const TribeSection = () => {
       <div className="flex lg:flex-row items-center md:justify-between  flex-col md:py-6 py-[28%] 2xl:py-16  gap-10 md:gap-4 w-[100%] md:w-[80%] ">
         {tribe.map((item, index) => (
           <div key={index} className='w-[80%] flex-wrap'
-          style={{
-            backgroundImage: index === 1 ? "url('/assets/2 Collection/blue.png')" : "url('/assets/2 Collection/yellow.png')",
-            backgroundPosition: index === 1 ? 'top right ' : 'bottom left',
-            backgroundRepeat: 'no-repeat'
-          }}>
+            style={{
+              backgroundImage: index === 1 ? "url('/assets/2 Collection/blue.png')" : "url('/assets/2 Collection/yellow.png')",
+              backgroundPosition: index === 1 ? 'top right ' : 'bottom left',
+              backgroundRepeat: 'no-repeat'
+            }}>
             <Tribes
               gif={item.url}
               border={"border-blue"}
