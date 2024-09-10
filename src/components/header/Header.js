@@ -27,11 +27,11 @@ const Header = () => {
 
   return (
     <header
-      className={`fixed w-full transition duration-500 transform backdrop-blur-sm z-50 ${
+      className={`fixed w-[100vw] max-w-[1440px] transition duration-500 transform backdrop-blur-sm z-50 ${
         showNavbar ? "translate-y-0" : "-translate-y-[100px]"
       }`}
     >
-      <div className="flex bg-white bg-opacity-10 rounded-lg items-center justify-between py-1.5 px-3 w-[90%] md:w-[85%] xl:w-[80%] mx-auto mt-5 ">
+      <div className="flex bg-white bg-opacity-10 rounded-lg items-center justify-between py-1.5 px-3 w-[90%] md:w-[85%] xl:w-[80%] mx-auto 2xl:ml-[710px] mt-5 ">
         <div className="flex items-center gap-5 w-[100%]">
           <div className="w-[60%] md:w-[30%] lg:w-[20%] cursor-pointer">
             <Link to="/">

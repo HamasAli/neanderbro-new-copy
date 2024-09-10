@@ -14,8 +14,8 @@ export const StateMintingContextProvider = ({ children }) => {
 
   const web3Pro = walletClient && chainIds.includes(chain?.id)
     ? walletClient
-    // : "https://polygon-mainnet.infura.io/v3/7a6a4b893bfe4325aed8a527215570f6";
-    : "https://sepolia.infura.io/v3/72b85b515f1a4c98b2667acf92b6276b";
+    : "https://polygon-mainnet.infura.io/v3/7a6a4b893bfe4325aed8a527215570f6";
+    // : "https://sepolia.infura.io/v3/72b85b515f1a4c98b2667acf92b6276b";
 
   const web3 = new Web3(web3Pro);
 
@@ -82,7 +82,7 @@ export const StateMintingContextProvider = ({ children }) => {
         .send({
           from: walletAddress,
           value: (pricePerToken * qty).toString(),
-          gasPrice: Number(gasFee + gasFee),
+          gasPrice: Number(gasFee + gasFee / 3),
         });
 
       return response;
@@ -108,7 +108,7 @@ export const StateMintingContextProvider = ({ children }) => {
     try {
       const response = await MintingInstance.methods
         .setApprovalForAll(StakingAddress, true)
-        .send({ from: senderAddress, gasPrice: Number(gasFee + gasFee) });
+        .send({ from: senderAddress, gasPrice: Number(gasFee + gasFee / 3) });
       return response;
     } catch (error) {
       throw error;

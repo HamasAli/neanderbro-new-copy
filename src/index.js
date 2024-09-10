@@ -12,7 +12,7 @@ import {
 
 import { configureChains, createConfig, WagmiConfig } from "wagmi";
 
-import { sepolia } from "wagmi/chains";
+import { polygon } from "wagmi/chains";
 
 import { alchemyProvider } from "wagmi/providers/alchemy";
 
@@ -23,22 +23,22 @@ import { ToastContainer } from "react-toastify";
 import { StateNeanderGalsContextProvider } from "./context/NeanderGalsContract";
 import { StateContextProvider } from "./context";
 import { StateStakingContextProviderV1 } from "./context/StakingV1Contract";
-// import { jsonRpcProvider } from "wagmi/providers/jsonRpc";
+import { jsonRpcProvider } from "wagmi/providers/jsonRpc";
 
 const { chains, publicClient } = configureChains(
-  [sepolia],
+  [polygon],
   [
     alchemyProvider({
       apiKey: "36eb4a4f-fcc2-4ce9-bc64-f5e75c42c7b3",
     }),
-    // jsonRpcProvider({
-    //   rpc: (chain) => {
-    //     if (chain?.id === polygon?.id) {
-    //       return { http: "https://polygon-rpc.com" };
-    //     }
-    //     return null;
-    //   },
-    // }),
+    jsonRpcProvider({
+      rpc: (chain) => {
+        if (chain?.id === polygon?.id) {
+          return { http: "https://polygon-rpc.com" };
+        }
+        return null;
+      },
+    }),
     publicProvider(),
   ]
 );
