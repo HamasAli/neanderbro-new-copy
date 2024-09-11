@@ -42,7 +42,6 @@ const RoadmapBoxes = () => {
       style={{
         background: `url('/assets/5 roadmap/Left side.png') left, url('/assets/5 roadmap/right side.png') right`,
         backgroundRepeat: "no-repeat",
-        
       }}
       className="flex flex-col items-center gap-10 overflow-hidden"
     >
@@ -77,9 +76,33 @@ const RoadmapBoxes = () => {
             <StyledH4Heading fontColor={"text-yellow"} content={"2024"} />
             {/* Box Content */}
             <div>
-              <ul className="list-disc pl-6 pr-4">
+              <ul className="list-disc pl-6 pr-4 space-y-1">
                 {content.neanderBrosList1?.map((items, index) => (
-                  <li key={index}>{items}</li>
+                  <li
+                    key={index}
+                    className={
+                      index === 0 || index === 6 || index === 8
+                        ? "list-none"
+                        : ""
+                    }
+                  >
+                    <div
+                      className={`flex ${
+                        index === 0 || index === 6 || index === 8
+                          ? "items-start ml-shift-left"
+                          : ""
+                      }`}
+                    >
+                      {index === 0 || index === 6 || index === 8 ? (
+                        <img
+                          src={"/assets/5 roadmap/checkmark.svg"}
+                          alt="CheckMark"
+                          className="mr-2 mt-1"
+                        />
+                      ) : null}
+                      {items}
+                    </div>
+                  </li>
                 ))}
               </ul>
             </div>

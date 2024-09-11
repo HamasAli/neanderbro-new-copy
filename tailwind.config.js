@@ -6,9 +6,9 @@ module.exports = {
       fontFamily: {
         montserrat: ["var(--montserrat)"],
         helvetica: ["var(--helvetica)"],
-        privacyFont: ["var(--privacyFont)"]
+        privacyFont: ["var(--privacyFont)"],
       },
-     
+
       colors: {
         yellow: "#ffc107",
         blue: "#00a3ff",
@@ -16,8 +16,7 @@ module.exports = {
         dark: "#242435",
         white: "#ffffff",
         gray: "#e3e3e3",
-        background:"#191919",
-        
+        background: "#191919",
       },
       fontSize: {
         xs: ["12px"],
@@ -27,6 +26,9 @@ module.exports = {
         xl: ["24px"],
         "2xl": ["32px"],
         "3xl": ["50px"],
+      },
+      margin: {
+        "shift-left": "-22px",
       },
     },
   },
