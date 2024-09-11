@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { useMintingStateContext } from "../../../context/MintingContract";
 import "./mintNow.css"; // Make sure to import the CSS file
 
-const MintNowComponent = () => {
+const MintNowSection = () => {
   const { getTotalSupply } = useMintingStateContext();
   const [totalMinted, setTotalMinted] = useState(null);
 
@@ -38,7 +38,10 @@ const MintNowComponent = () => {
             className="w-auto h-auto rotate-90 md:rotate-0"
           />
         </div>
-        <div
+        <Link
+          to="/mint"
+          target=""
+          rel="noopener noreferrer"
           className="text-center relative mb-4 md:mb-0 p-[30px] lg:p-[30px] bg-cover bg-center"
           style={{
             backgroundImage: "url('/assets/11 mintNow/strokeBackground.png')",
@@ -53,7 +56,7 @@ const MintNowComponent = () => {
           >
             {`${totalMinted == null ? "0" : totalMinted}/4000 Minted`}
           </span>
-        </div>
+        </Link>
         <div className="relative mb-4 md:mb-0">
           <img
             src="/assets/11 mintNow/arrow-right.svg"
@@ -75,4 +78,4 @@ const MintNowComponent = () => {
   );
 };
 
-export default MintNowComponent;
+export default MintNowSection;
