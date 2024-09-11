@@ -29,7 +29,7 @@ const { chains, publicClient } = configureChains(
   [polygon],
   [
     alchemyProvider({
-      apiKey: "36eb4a4f-fcc2-4ce9-bc64-f5e75c42c7b3",
+      apiKey: "IV2z-pKhdZA-M7UR1h0Z9azePHSDHyze",
     }),
     jsonRpcProvider({
       rpc: (chain) => {

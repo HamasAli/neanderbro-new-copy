@@ -36,7 +36,7 @@ export const StateNeanderGalsContextProvider = ({ children }) => {
     try {
       const response = await NeanderGalsInstance.methods
         .setApprovalForAll(StakingAddress, true)
-        .send({ from: senderAddress, gasPrice: Number(gasFee + gasFee / 3) });
+        .send({ from: senderAddress, gasPrice: Number(gasFee + gasFee) });
       return response;
     } catch (error) {
       throw error;

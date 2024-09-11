@@ -82,7 +82,7 @@ export const StateMintingContextProvider = ({ children }) => {
         .send({
           from: walletAddress,
           value: (pricePerToken * qty).toString(),
-          gasPrice: Number(gasFee + gasFee / 3),
+          gasPrice: Number(gasFee + gasFee),
         });
 
       return response;
@@ -108,7 +108,7 @@ export const StateMintingContextProvider = ({ children }) => {
     try {
       const response = await MintingInstance.methods
         .setApprovalForAll(StakingAddress, true)
-        .send({ from: senderAddress, gasPrice: Number(gasFee + gasFee / 3) });
+        .send({ from: senderAddress, gasPrice: Number(gasFee + gasFee) });
       return response;
     } catch (error) {
       throw error;
