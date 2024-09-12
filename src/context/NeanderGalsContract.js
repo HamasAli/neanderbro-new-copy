@@ -12,13 +12,19 @@ export const StateNeanderGalsContextProvider = ({ children }) => {
   const web3Pro = walletClient
     ? walletClient
     : "https://polygon-mainnet.infura.io/v3/7a6a4b893bfe4325aed8a527215570f6";
-    // : "https://sepolia.infura.io/v3/72b85b515f1a4c98b2667acf92b6276b";
+  // : "https://sepolia.infura.io/v3/72b85b515f1a4c98b2667acf92b6276b";
   const web3 = new Web3(web3Pro);
 
   const NeanderGalsInstance = new web3.eth.Contract(
     MintingABI,
     ContractAddresses.NeanderGal
   );
+
+  const getGasPrice = async () => {
+    let gasPrice = await web3.eth.getGasPrice();
+    return gasPrice * 2;
+  }
+
   // staking approve call function
 
   const ApprovedNGStaking = async (wallet, StakingAddress) => {
@@ -32,11 +38,15 @@ export const StateNeanderGalsContextProvider = ({ children }) => {
     }
   };
 
-  const SetApprovalNG = async (StakingAddress, senderAddress, gasFee) => {
+  const SetApprovalNG = async (StakingAddress, senderAddress) => {
     try {
+      const gasPrice = await getGasPrice();
       const response = await NeanderGalsInstance.methods
         .setApprovalForAll(StakingAddress, true)
-        .send({ from: senderAddress, gasPrice: Number(gasFee + gasFee) });
+        .send({
+          from: senderAddress,
+          gasPrice
+        });
       return response;
     } catch (error) {
       throw error;

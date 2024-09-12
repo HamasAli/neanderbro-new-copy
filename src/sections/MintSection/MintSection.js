@@ -8,7 +8,7 @@ import StyledH3Heading from "../../common/components/styledH3Heading/StyledH3Hea
 import StyledSmText from "../../common/components/styledSmText/StyledSmText";
 import StyledH6Heading from "../../common/components/styledH6Heading/StyledH6Heading";
 import { useMintingStateContext } from "../../context/MintingContract";
-import { useAccount, useFeeData, useNetwork } from "wagmi";
+import { useAccount, useNetwork } from "wagmi";
 import Loader from "../../components/Loader/Loader";
 import { Success } from "../../components/toast/Success";
 import StepsSection from "../Home/stepsSection/StepsSection";
@@ -17,7 +17,6 @@ import { Error } from "../../components/toast/Error";
 
 const MintSection = () => {
   const account = useAccount();
-  const { data } = useFeeData();
   const { openChainModal } = useChainModal();
   const { chain, chains } = useNetwork();
   const chainIds = chains.map(chain => chain.id);
@@ -49,8 +48,7 @@ const MintSection = () => {
         activeClaimData?.currency,
         activeClaimData?.pricePerToken,
         activeClaimData?.merkleRoot,
-        activeClaimData?.quantityLimitPerWallet,
-        data?.formatted?.gasPrice
+        activeClaimData?.quantityLimitPerWallet
       );
       setLoading(false);
       if (res?.transactionHash) {

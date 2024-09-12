@@ -1,7 +1,7 @@
 import React from "react";
 import Button from "../button/Button";
 import { useStakingStateContext } from "../../context/StakingContract";
-import { useAccount, useFeeData } from "wagmi";
+import { useAccount } from "wagmi";
 import { useStateContext1 } from "../../context";
 import { Error } from "../toast/Error";
 import { Success } from "../toast/Success";
@@ -10,7 +10,6 @@ import { useStakingStateContextV1 } from "../../context/StakingV1Contract";
 const UnstakeNft = ({ border, idName, StakingDetails, isDisabled, stakingV1 }) => {
   const { setApiState, setMetaMaskLoader, setNeanderGalsStake } = useStateContext1();
   const account = useAccount();
-  const { data } = useFeeData();
   const address = account.address;
   const { UNStakeNG } = useStakingStateContext();
   const { UNStakeNGV1 } = useStakingStateContextV1();
@@ -19,9 +18,9 @@ const UnstakeNft = ({ border, idName, StakingDetails, isDisabled, stakingV1 }) =
     try {
       let response;
       if (stakingV1) {
-        response = await UNStakeNGV1(idName, address, data?.formatted?.gasPrice);
+        response = await UNStakeNGV1(idName, address);
       } else {
-        response = await UNStakeNG(idName, address, data?.formatted?.gasPrice);
+        response = await UNStakeNG(idName, address);
       }
       if (response.status === true) {
         Success({ message1: "Successfully UnStaked", autoClose: true });

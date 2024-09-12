@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import Button from "../button/Button";
-import { useAccount, useFeeData } from "wagmi";
+import { useAccount } from "wagmi";
 import { ContractAddresses } from "../../constants/ContractAdresses";
 import StakeModal from "../stakeModal/StakeModal";
 import { useStakingStateContext } from "../../context/StakingContract";
@@ -19,8 +19,6 @@ const NftBox = ({ border, data, gals, stakeTime, apiNBData, apiNGData, id }) => 
   const stakingAddress = ContractAddresses?.Staking;
   const account = useAccount();
   const address = account?.address;
-  const { gas } = useFeeData();
-
 
   const [isOpen, setIsOpen] = useState(false);
   const buttonsRef = useRef(null);
@@ -73,9 +71,9 @@ const NftBox = ({ border, data, gals, stakeTime, apiNBData, apiNGData, id }) => 
   }
 
   const handleStake = async () => {
-    const response = await ApprovedStaking(address, stakingAddress, gas.gasPrice);
+    const response = await ApprovedStaking(address, stakingAddress);
     if (response === true) {
-      const resp = await Stake(tokenNB, address, gas.gasPrice);
+      const resp = await Stake(tokenNB, address);
     }
     if (response === false) {
       openModal();
@@ -85,7 +83,7 @@ const NftBox = ({ border, data, gals, stakeTime, apiNBData, apiNGData, id }) => 
   const handleNGStake = async () => {
     const response = await ApprovedNGStaking(address, stakingAddress);
     if (response === true) {
-      const resp = await StakeNG(tokenNG, address, gas.gasPrice);
+      const resp = await StakeNG(tokenNG, address);
     }
     else if (response === false) {
       openModal();

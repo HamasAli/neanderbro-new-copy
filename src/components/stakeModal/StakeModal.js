@@ -3,7 +3,6 @@ import Button from "../button/Button";
 import { useMintingStateContext } from "../../context/MintingContract";
 import { useStakingStateContext } from "../../context/StakingContract";
 import { useNeanderGalsStateContext } from "../../context/NeanderGalsContract";
-import { useFeeData } from "wagmi";
 import { Success } from "../toast/Success";
 import { Error } from "../toast/Error";
 import { useStateContext1 } from "../../context";
@@ -20,7 +19,6 @@ const StakeModal = ({
   const { SetApprovalNG } = useNeanderGalsStateContext();
   const { Stake, StakeNG } = useStakingStateContext();
   const { setApiState, setMetaMaskLoader, setNeanderGalsStake } = useStateContext1();
-  const { data } = useFeeData();
 
   const closeModal = () => {
     setIsOpen(false);
@@ -29,13 +27,13 @@ const StakeModal = ({
   const handleApproved = async () => {
     setMetaMaskLoader(true);
     try {
-      const rep = await SetApproval(staking, wallet, data?.formatted?.gasPrice);
+      const rep = await SetApproval(staking, wallet);
       let status = rep?.status;
       setIsOpen(false);
 
       if (status === true) {
         try {
-          const resp = await Stake(array, wallet, data?.formatted?.gasPrice);
+          const resp = await Stake(array, wallet);
           if (resp.status === true) {
             Success({ message1: "Successfully Staked", autoClose: true });
             setMetaMaskLoader(false);
@@ -62,7 +60,7 @@ const StakeModal = ({
   const handleNGApproved = async () => {
     setMetaMaskLoader(true);
     try {
-      const rep = await SetApprovalNG(staking, wallet, data?.formatted?.gasPrice);
+      const rep = await SetApprovalNG(staking, wallet);
       let status = rep?.status;
       setIsOpen(false);
 
@@ -70,7 +68,7 @@ const StakeModal = ({
         setMetaMaskLoader(true);
 
         try {
-          const resp = await StakeNG(units, wallet, data?.formatted?.gasPrice);
+          const resp = await StakeNG(units, wallet);
           if (resp?.status === true) {
             Success({ message1: "Successfully Staked", autoClose: true });
             setNeanderGalsStake(true);

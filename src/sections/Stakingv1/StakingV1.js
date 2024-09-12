@@ -1,5 +1,5 @@
 // /* eslint-disable react-hooks/exhaustive-deps */
-// import { useAccount, useFeeData } from 'wagmi';
+// import { useAccount } from 'wagmi';
 // import { useStateContext1 } from '../../context';
 // import React, { useEffect, useState } from 'react'
 // import Loader from '../../components/Loader/Loader';
@@ -30,7 +30,6 @@
 //     });
 
 //     const account = useAccount();
-//     const { data } = useFeeData();
 //     const wallet = account.address
 //     const address = account?.address;
 //     const [loading, setLoading] = useState(true);
@@ -179,7 +178,7 @@
 //                 if (isNaN(stakingId)) {
 //                     Error('Failed to unstake, reload and try again');
 //                 }
-//                 const response = await ClaimAndUnstakeV1(stakingId, wallet, data?.formatted?.gasPrice);
+//                 const response = await ClaimAndUnstakeV1(stakingId, wallet);
 //                 if (response.status === true) {
 //                     setMetaMaskLoader(false);
 //                     Success({ message1: "Successfully Claimed & Unstaked", autoClose: true });

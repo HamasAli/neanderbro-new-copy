@@ -1,7 +1,6 @@
 import React from "react";
 import Button from "../button/Button";
 import { useStakingStateContext } from "../../context/StakingContract";
-import { useFeeData } from "wagmi";
 import { Success } from "../toast/Success";
 import { Error } from "../toast/Error";
 import { useStateContext1 } from "../../context";
@@ -11,7 +10,6 @@ const EmergencyModal = ({ isOpen, setIsOpen, id, wallet, stakingV1 }) => {
   const { Emergency } = useStakingStateContext();
   const { EmergencyV1 } = useStakingStateContextV1();
   const { setMetaMaskLoader, setApiState } = useStateContext1();
-  const { data } = useFeeData();
 
   const handleEUnstake = async () => {
     setIsOpen(false);
@@ -19,9 +17,9 @@ const EmergencyModal = ({ isOpen, setIsOpen, id, wallet, stakingV1 }) => {
       setMetaMaskLoader(true);
       let response;
       if (stakingV1) {
-        response = await EmergencyV1(id, wallet, data?.formatted?.gasPrice);
+        response = await EmergencyV1(id, wallet);
       } else {
-        response = await Emergency(id, wallet, data?.formatted?.gasPrice);
+        response = await Emergency(id, wallet);
       }
       if (response.status === true) {
         Success({ message1: "Successfully Unstaked", autoClose: true });
@@ -46,14 +44,14 @@ const EmergencyModal = ({ isOpen, setIsOpen, id, wallet, stakingV1 }) => {
       {isOpen && (
         <div className="fixed w-[100%] bg-black backdrop-blur-sm bg-opacity-[50%]  inset-0 flex items-center justify-center z-50">
           <div className=" bg-[#000F1F] border border-blue relative gap-3 p-8 flex flex-col justify-center items-center rounded-xl shadow-md w-[80%] lg:w-1/3">
-            <div className="flex justify-center items-center ">
-              <h2 className="xl:text-2xl text-xl text-red-700 font-bold">
+            <div className="flex items-center justify-center ">
+              <h2 className="text-xl font-bold text-red-700 xl:text-2xl">
                 Warning!!
               </h2>
 
               <button onClick={closeModal}>
                 <svg
-                  className="fill-current text-gray-600 absolute top-4 right-5 cursor-pointer"
+                  className="absolute text-gray-600 cursor-pointer fill-current top-4 right-5"
                   xmlns="http://www.w3.org/2000/svg"
                   width="32"
                   height="32"
@@ -67,7 +65,7 @@ const EmergencyModal = ({ isOpen, setIsOpen, id, wallet, stakingV1 }) => {
                 </svg>
               </button>
             </div>
-            <p className="text-white text-sm lg:text-md m-2">
+            <p className="m-2 text-sm text-white lg:text-md">
               If you unstake your Neanderbros NFTs you will not recieve any
               reward. Are you sure you want to unstake?
             </p>

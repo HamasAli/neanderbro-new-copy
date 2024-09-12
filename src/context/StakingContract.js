@@ -11,13 +11,18 @@ export const StateStakingContextProvider = ({ children }) => {
   const web3Pro = walletClient
     ? walletClient
     : "https://polygon-mainnet.infura.io/v3/7a6a4b893bfe4325aed8a527215570f6";
-    // : "https://sepolia.infura.io/v3/72b85b515f1a4c98b2667acf92b6276b";
+  // : "https://sepolia.infura.io/v3/72b85b515f1a4c98b2667acf92b6276b";
 
   const web3 = new Web3(web3Pro);
   const StakingInstance = new web3.eth.Contract(
     StakingABI,
     ContractAddresses.Staking
   );
+
+  const getGasPrice = async () => {
+    let gasPrice = await web3.eth.getGasPrice();
+    return gasPrice * 2;
+  }
 
   //Current Staking Call function
   const CurrentStaking = async () => {
@@ -99,55 +104,60 @@ export const StateStakingContextProvider = ({ children }) => {
   };
 
   // Stake NB Function
-  const Stake = async (array, senderWalletAddress, gasFee) => {
+  const Stake = async (array, senderWalletAddress) => {
     try {
+      const gasPrice = await getGasPrice();
       const response = await StakingInstance.methods
         .stake(array)
-        .send({ from: senderWalletAddress, gasPrice: Number(gasFee + gasFee) });
+        .send({ from: senderWalletAddress, gasPrice });
       return response;
     } catch (error) {
       throw error;
     }
   };
 
-  const StakeNG = async (unit, senderWalletAddress, gasFee) => {
+  const StakeNG = async (unit, senderWalletAddress) => {
     try {
+      const gasPrice = await getGasPrice();
       const response = await StakingInstance.methods
         .stakeNeanderGal(unit)
-        .send({ from: senderWalletAddress, gasPrice: Number(gasFee + gasFee) });
+        .send({ from: senderWalletAddress, gasPrice });
       return response;
     } catch (error) {
       throw error;
     }
   };
 
-  const UNStakeNG = async (unit, senderWalletAddress, gasFee) => {
+  const UNStakeNG = async (unit, senderWalletAddress) => {
     try {
+      const gasPrice = await getGasPrice();
       const response = await StakingInstance.methods
         .unstakeNeanderGal(unit)
-        .send({ from: senderWalletAddress, gasPrice: Number(gasFee + gasFee) });
+        .send({ from: senderWalletAddress, gasPrice });
       return response;
     } catch (error) {
       throw error;
     }
   };
 
-  const Claim = async (Id, senderWalletAddress, gasFee) => {
+  const Claim = async (Id, senderWalletAddress) => {
     try {
+      const gasPrice = await getGasPrice();
       const response = await StakingInstance.methods
         .claim(Id)
-        .send({ from: senderWalletAddress, gasPrice: Number(gasFee + gasFee) });
+        .send({ from: senderWalletAddress, gasPrice });
       return response;
     } catch (error) {
       throw error;
     }
   };
 
-  const ClaimAndUnstake = async (Id, senderWalletAddress, gasFee) => {
+  const ClaimAndUnstake = async (Id, senderWalletAddress) => {
     try {
+      const gasPrice = await getGasPrice();
       const response = await StakingInstance.methods
         .claimRewardAndUnstake(Id)
-        .send({ from: senderWalletAddress, gasPrice: Number(gasFee + gasFee) });
+        .send({ from: senderWalletAddress, gasPrice });
       return response;
     } catch (error) {
       throw error;
@@ -165,11 +175,12 @@ export const StateStakingContextProvider = ({ children }) => {
     }
   };
 
-  const Emergency = async (Id, senderWalletAddress, gasFee) => {
+  const Emergency = async (Id, senderWalletAddress) => {
     try {
+      const gasPrice = await getGasPrice();
       const response = await StakingInstance.methods
         .emergencyUnstake(Id)
-        .send({ from: senderWalletAddress, gasPrice: Number(gasFee + gasFee) });
+        .send({ from: senderWalletAddress, gasPrice });
       return response;
     } catch (error) {
       throw error;

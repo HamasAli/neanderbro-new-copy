@@ -1,7 +1,7 @@
 import React from "react";
 import Button from "../button/Button";
 import { useStakingStateContext } from "../../context/StakingContract";
-import { useAccount, useFeeData } from "wagmi";
+import { useAccount } from "wagmi";
 import Skeleton from "../../components/Skeleton/Skeleton";
 import { useStateContext1 } from "../../context";
 import { Success } from "../toast/Success";
@@ -12,7 +12,6 @@ const PreviousModal = ({ isOpen, setIsOpen, modalData, number, sReward, nftData,
   const { Claim, ClaimAndUnstake, ClaimAndTransfer } = useStakingStateContext();
   const account = useAccount();
   const wallet = account.address
-  const { data } = useFeeData();
 
   const unixTimestampString = `${Number(modalData?.stakingStartTime)}`;
   const unixTimestamp = parseInt(unixTimestampString, 10);
@@ -69,7 +68,7 @@ const PreviousModal = ({ isOpen, setIsOpen, modalData, number, sReward, nftData,
     setIsOpen(false);
     try {
       setMetaMaskLoader(true);
-      const response = await ClaimAndUnstake(Number(modalData?.stakingId), wallet, data?.formatted?.gasPrice)
+      const response = await ClaimAndUnstake(Number(modalData?.stakingId), wallet)
       if (response.status === true) {
         setMetaMaskLoader(false);
         Success({ message1: "Successfully Claimed & Unstaked", autoClose: true });

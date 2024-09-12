@@ -15,7 +15,7 @@ export const StateMintingContextProvider = ({ children }) => {
   const web3Pro = walletClient && chainIds.includes(chain?.id)
     ? walletClient
     : "https://polygon-mainnet.infura.io/v3/7a6a4b893bfe4325aed8a527215570f6";
-    // : "https://sepolia.infura.io/v3/72b85b515f1a4c98b2667acf92b6276b";
+  // : "https://sepolia.infura.io/v3/72b85b515f1a4c98b2667acf92b6276b";
 
   const web3 = new Web3(web3Pro);
 
@@ -24,6 +24,10 @@ export const StateMintingContextProvider = ({ children }) => {
     ContractAddresses.NeanderBROS
   );
 
+  const getGasPrice = async () => {
+    let gasPrice = await web3.eth.getGasPrice();
+    return gasPrice * 2;
+  }
 
   // getting total minted nfts count
   const getTotalSupply = async () => {
@@ -66,10 +70,10 @@ export const StateMintingContextProvider = ({ children }) => {
     currency,
     pricePerToken,
     merkleRoot,
-    quantityLimitPerWallet,
-    gasFee
+    quantityLimitPerWallet
   ) => {
     try {
+      const gasPrice = await getGasPrice();
       const response = await MintingInstance.methods
         .claim(
           walletAddress,
@@ -82,7 +86,7 @@ export const StateMintingContextProvider = ({ children }) => {
         .send({
           from: walletAddress,
           value: (pricePerToken * qty).toString(),
-          gasPrice: Number(gasFee + gasFee),
+          gasPrice
         });
 
       return response;
@@ -104,11 +108,12 @@ export const StateMintingContextProvider = ({ children }) => {
     }
   };
 
-  const SetApproval = async (StakingAddress, senderAddress, gasFee) => {
+  const SetApproval = async (StakingAddress, senderAddress) => {
     try {
+      const gasPrice = await getGasPrice();
       const response = await MintingInstance.methods
         .setApprovalForAll(StakingAddress, true)
-        .send({ from: senderAddress, gasPrice: Number(gasFee + gasFee) });
+        .send({ from: senderAddress, gasPrice });
       return response;
     } catch (error) {
       throw error;

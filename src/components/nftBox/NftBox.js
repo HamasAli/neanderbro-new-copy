@@ -6,7 +6,6 @@ import StakeModal from "../stakeModal/StakeModal";
 import { useStakingStateContext } from "../../context/StakingContract";
 import { useMintingStateContext } from "../../context/MintingContract";
 import { useNeanderGalsStateContext } from "../../context/NeanderGalsContract";
-import { useFeeData } from "wagmi";
 import { Success } from "../toast/Success";
 import { Error } from "../toast/Error";
 import { useStateContext1 } from "../../context";
@@ -32,7 +31,6 @@ const NftBox = ({
   const stakingAddress = ContractAddresses?.Staking;
   const account = useAccount();
   const address = account?.address;
-  const { data } = useFeeData();
   const [isOpen, setIsOpen] = useState(false);
   const buttonsRef = useRef(null);
   const [activeButtons, setActiveButtons] = useState([]);
@@ -102,7 +100,7 @@ const NftBox = ({
       if (response === true) {
         try {
           setMetaMaskLoader(true);
-          const resp = await Stake(tokenNB, address, data?.formatted?.gasPrice);
+          const resp = await Stake(tokenNB, address);
           if (resp.status === true) {
             Success({ message1: "Successfully Staked", autoClose: true });
             setApiState((prevApiState) => !prevApiState);
@@ -130,7 +128,7 @@ const NftBox = ({
       if (response === true) {
         setMetaMaskLoader(true);
         try {
-          const resp = await StakeNG(tokenNG, address, data?.formatted?.gasPrice);
+          const resp = await StakeNG(tokenNG, address);
           if (resp?.status === true) {
             Success({ message1: "Successfully Staked", autoClose: true });
             setNeanderGalsStake(true);

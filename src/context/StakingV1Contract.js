@@ -11,7 +11,7 @@ export const StateStakingContextProviderV1 = ({ children }) => {
     const web3Pro = walletClient
         ? walletClient
         : "https://polygon-mainnet.infura.io/v3/7a6a4b893bfe4325aed8a527215570f6";
-        // : "https://sepolia.infura.io/v3/72b85b515f1a4c98b2667acf92b6276b";
+    // : "https://sepolia.infura.io/v3/72b85b515f1a4c98b2667acf92b6276b";
 
     const web3 = new Web3(web3Pro);
 
@@ -19,6 +19,11 @@ export const StateStakingContextProviderV1 = ({ children }) => {
         StakingABI,
         ContractAddresses.Staking
     );
+
+    const getGasPrice = async () => {
+        let gasPrice = await web3.eth.getGasPrice();
+        return gasPrice * 2;
+    }
 
     //  Staking Version 1 Contract
 
@@ -73,11 +78,12 @@ export const StateStakingContextProviderV1 = ({ children }) => {
         }
     };
 
-    const ClaimAndUnstakeV1 = async (Id, senderWalletAddress, gasFee) => {
+    const ClaimAndUnstakeV1 = async (Id, senderWalletAddress) => {
         try {
+            const gasPrice = await getGasPrice();
             const response = await StakingInstanceV1.methods
                 .claimRewardAndUnstake(Id)
-                .send({ from: senderWalletAddress, gasPrice: Number(gasFee + gasFee) });
+                .send({ from: senderWalletAddress, gasPrice });
             return response;
         } catch (error) {
             throw error;
@@ -106,22 +112,24 @@ export const StateStakingContextProviderV1 = ({ children }) => {
         }
     };
 
-    const UNStakeNGV1 = async (unit, senderWalletAddress, gasFee) => {
+    const UNStakeNGV1 = async (unit, senderWalletAddress) => {
         try {
+            const gasPrice = await getGasPrice();
             const response = await StakingInstanceV1.methods
                 .unstakeNeanderGal(unit)
-                .send({ from: senderWalletAddress, gasPrice: Number(gasFee + gasFee) });
+                .send({ from: senderWalletAddress, gasPrice });
             return response;
         } catch (error) {
             throw error;
         }
     };
 
-    const EmergencyV1 = async (Id, senderWalletAddress, gasFee) => {
+    const EmergencyV1 = async (Id, senderWalletAddress) => {
         try {
+            const gasPrice = await getGasPrice();
             const response = await StakingInstanceV1.methods
                 .emergencyUnstake(Id)
-                .send({ from: senderWalletAddress, gasPrice: Number(gasFee + gasFee) });
+                .send({ from: senderWalletAddress, gasPrice });
             return response;
         } catch (error) {
             throw error;

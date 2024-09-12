@@ -45,7 +45,8 @@ const { chains, publicClient } = configureChains(
 // connectors
 const { connectors } = getDefaultWallets({
   appName: "",
-  projectId: "7e6a5b6e8f0867ebaa7c1dda9af12924",
+  // projectId: "7e6a5b6e8f0867ebaa7c1dda9af12924",
+  projectId: "36eb4a4f-fcc2-4ce9-bc64-f5e75c42c7b3",
   chains,
 });
 
