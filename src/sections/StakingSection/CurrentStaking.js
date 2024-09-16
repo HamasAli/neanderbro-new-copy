@@ -54,17 +54,14 @@ const CurrentStaking = () => {
         setLoading(false);
         setId(resp);
       }
-    }
-    catch (error) {
+    } catch (error) {
       setLoading(false);
       return error;
     }
   };
 
   useEffect(() => {
-    if (account?.address) {
-      CurrentId();
-    }
+    CurrentId();
   }, [apiState, account?.status]);
 
   useEffect(() => {
@@ -147,14 +144,19 @@ const CurrentStaking = () => {
       head: "APY",
     },
     {
-      body: `${Number(staking?.numberOfNFTsStaked)}/${Number(staking?.maxNFTLimit)}`,
+      body: `${Number(staking?.numberOfNFTsStaked)}/${Number(
+        staking?.maxNFTLimit
+      )}`,
       head: "Max staking limit",
     },
     {
-      body: `${Number(staking?.maxWalletLimit) > 100000
-        ? "Unlimited"
-        : `${Number(details?.stakedNFTsId?.length)}/${Number(staking?.maxWalletLimit)}`
-        }`,
+      body: `${
+        Number(staking?.maxWalletLimit) > 100000
+          ? "Unlimited"
+          : `${Number(details?.stakedNFTsId?.length)}/${Number(
+              staking?.maxWalletLimit
+            )}`
+      }`,
       head: "Max Wallet limit",
     },
   ];
@@ -180,11 +182,11 @@ const CurrentStaking = () => {
           setBrosApiData(response?.data?.result);
         })
         .catch((error) => {
-          return error
+          return error;
         });
     } catch (error) {
       // Handle fetch error
-      return error
+      return error;
     }
   };
   const fetchGalsNFTs = async () => {
@@ -242,20 +244,19 @@ const CurrentStaking = () => {
       const resp = await stakedNeanderGal(address);
       setGalId(resp);
     } catch (error) {
-      return error
+      return error;
     }
   };
 
   return (
     <div className="w-[100%] py-5  flex flex-col justify-center items-center">
-      {
-        activeStatus === false ? (
-          <p className="mb-6 text-lg text-center w-[80%] font-bold text-yellow">
-            There is No Active Staking
-          </p>
-        ) : (
-          ""
-        )}
+      {activeStatus === false ? (
+        <p className="mb-6 text-lg text-center w-[80%] font-bold text-yellow">
+          There is No Active Staking
+        </p>
+      ) : (
+        ""
+      )}
       {metaMaskLoader && <Loader />}
       <div className="w-[80%] flex flex-col p-5 border justify-center items-center rounded-md border-yellow bg-black bg-opacity-20">
         <div className="grid w-full grid-cols-2 gap-3 text-white lg:grid lg:grid-cols-6 md:grid md:grid-cols-3 lg:gap-0 place-content-start xl:place-content-center">
@@ -271,17 +272,22 @@ const CurrentStaking = () => {
                 >
                   {items.head}
                 </p>
-                {(
-                  <p
-                    className={`text-center`}
-                  >
-                    {activeStatus === false || loading === true || typeof items.body !== "string" || items.body === undefined || !items.body || staking?.stakingId === 0 || items.body.includes('NaN') || !showContent ? (
+                {
+                  <p className={`text-center`}>
+                    {activeStatus === false ||
+                    loading === true ||
+                    typeof items.body !== "string" ||
+                    items.body === undefined ||
+                    !items.body ||
+                    staking?.stakingId === 0 ||
+                    items.body.includes("NaN") ||
+                    !showContent ? (
                       <Skeleton />
                     ) : (
                       items.body
                     )}
                   </p>
-                )}
+                }
               </div>
             );
           })}
@@ -315,8 +321,12 @@ const CurrentStaking = () => {
         stakingReward={totalReward}
         activeStatus={activeStatus}
         neanderGalsStake={neanderGalsStake}
-        endTime={Number(staking?.stakingEndTime) ? Number(staking?.stakingEndTime) : 0}
-        startTime={Number(staking?.stakingEndTime) ? Number(staking?.stakingEndTime) : 0}
+        endTime={
+          Number(staking?.stakingEndTime) ? Number(staking?.stakingEndTime) : 0
+        }
+        startTime={
+          Number(staking?.stakingEndTime) ? Number(staking?.stakingEndTime) : 0
+        }
       />
     </div>
   );
