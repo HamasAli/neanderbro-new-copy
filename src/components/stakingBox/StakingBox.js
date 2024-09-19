@@ -105,7 +105,7 @@ const StakingBox = ({ Id, StakingDetails, startTime, endTime, activeStatus, stak
 
       </div>
       <div className="lg:w-[40%] w-[90%] md:w-[60%] flex flex-col gap-4 m-5 justify-center items-start p-8 border border-blue rounded-xl">
-        <p className="text-white text-md">Total Estimated Reward</p>
+        <p className="text-white text-md">Accumulated Reward</p>
         {loading || !address ? (
           <Skeleton />
         ) : (

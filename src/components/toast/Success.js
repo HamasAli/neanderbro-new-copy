@@ -7,7 +7,7 @@ export const Success = ({ message, autoClose,message1 }) => {
     toast.success(
       <p className="w-[100%]">
         <span className=" font-simiBold text-md text-yellow">
-          Congratulation
+          Congratulations
         </span>
         <br />
         {message1}
