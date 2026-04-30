@@ -71,6 +71,7 @@ const RoadmapBoxes = () => {
                 ))}
               </ul>
             </div>
+            
           </div>
           <div className="bg-[#192735] border-2 rounded-2xl border-yellow p-6 lg:mt-80">
             <StyledH4Heading fontColor={"text-yellow"} content={"2024"} />
@@ -81,19 +82,19 @@ const RoadmapBoxes = () => {
                   <li
                     key={index}
                     className={
-                      index === 0 || index === 6 || index === 8
+                      index === 0 || index === 1 || index === 6 || index === 8
                         ? "list-none"
                         : ""
                     }
                   >
                     <div
                       className={`flex ${
-                        index === 0 || index === 6 || index === 8
+                        index === 0 || index === 1 || index === 6 || index === 8
                           ? "items-start ml-shift-left"
                           : ""
                       }`}
                     >
-                      {index === 0 || index === 6 || index === 8 ? (
+                      {index === 0 || index === 1 || index === 6 || index === 8 ? (
                         <img
                           src={"/assets/5 roadmap/checkmark.svg"}
                           alt="CheckMark"
