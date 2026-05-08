@@ -8,30 +8,30 @@ const utilityCards = [
     number: "01",
     title: "Playable Avatar",
     subtitle: "Now Live",
-    body: "Step into TCG World as a custom NeanderBros-inspired avatar. Your Bro is no longer just held — it's played.",
+    body: "NeanderBros holders can now step into TCG World using a custom NeanderBros-inspired avatar. This is your identity in the metaverse — explore the world, interact with other players, and represent the tribe using a character built around the NeanderBros brand. Your Bro is no longer just held — it's played.",
     live: true,
   },
   {
     number: "02",
-    title: "Stone Hut HQ",
+    title: "Stone Hut Utility",
     subtitle: "Coming Soon",
-    body: "Our tribe's central hub inside TCG World — a gathering place for holders to explore and connect.",
+    body: "By holding a NeanderBros NFT, players will be able to place a custom NeanderBros Stone Hut structure onto their own TCG World virtual land plots — giving holders a unique way to represent the tribe directly within the metaverse.",
     live: false,
   },
   {
     number: "03",
-    title: "Guild Events",
+    title: "Community Events",
     subtitle: "In the Works",
-    body: "Competitions, quests, and NFT-powered unlockables built exclusively for NeanderBros holders.",
+    body: "Guild-based events, community meetups, NFT-powered interactions, and expansion of NeanderBros structures across player-owned land.",
     live: false,
   },
 ];
 
 const comingFeatures = [
-  { label: "Guild Events", detail: "Compete as a tribe. Win as a family." },
-  { label: "Quest Experiences", detail: "Explore, discover, and earn inside the world." },
-  { label: "NFT Unlockables", detail: "Your NFT opens doors others can't." },
-  { label: "Metaverse Expansion", detail: "More worlds. More utility. More NeanderBros." },
+  { label: "Guild-based events and competitions",                          detail: "Compete as a tribe. Win as a family." },
+  { label: "Exploration and community meetups",                            detail: "Explore the world, connect with the tribe." },
+  { label: "NFT-powered interactions and future unlockables",              detail: "Your NFT opens doors others can't." },
+  { label: "Expansion of NeanderBros structures across player-owned land", detail: "More worlds. More presence. More NeanderBros." },
 ];
 
 const TCGWorldSection = () => {
@@ -46,8 +46,21 @@ const TCGWorldSection = () => {
           </span>
           <StyledH3Heading fontColor="text-yellow" content="NeanderBros x TCG World" />
           <p className="text-white text-md max-w-2xl">
-            NeanderBros is an authorized guild inside TCG World — an immersive open-world metaverse
-            where your NFT becomes a playable, interactive identity inside the game.
+            NeanderBros is an authorized guild inside TCG World, an immersive open-world metaverse
+            where players can explore, build, farm, battle, and connect in a persistent digital world.
+          </p>
+          <p className="text-white text-md max-w-2xl opacity-80">
+            As an authorized guild, we are actively building NeanderBros experiences inside TCG World —
+            transforming the collection from static NFTs into playable, interactive assets within the game.
+          </p>
+        </div>
+
+        {/* Holder Utility Intro */}
+        <div className="flex flex-col gap-2">
+          <StyledH5Heading fontColor="text-yellow" content="Holder Utility in TCG World" />
+          <p className="text-white text-sm opacity-70">
+            We are bringing real, in-world utility to NeanderBros holders — allowing you to use,
+            represent, and experience your NFT inside the metaverse.
           </p>
         </div>
 
@@ -90,8 +103,9 @@ const TCGWorldSection = () => {
           <div className="flex flex-col gap-1">
             <StyledH5Heading fontColor="text-yellow" content="Playable NeanderBros Avatar — Now Live" />
             <p className="text-white text-sm opacity-70">
-              Explore the world, interact with other players, and represent the tribe with a character
-              built around the NeanderBros brand.
+              NeanderBros holders can now step into TCG World using a custom NeanderBros-inspired avatar.
+              This is your identity in the metaverse — explore the world, interact with other players, and
+              represent the tribe using a character built around the NeanderBros brand.
             </p>
           </div>
           <div className="aspect-video w-full">
@@ -111,8 +125,8 @@ const TCGWorldSection = () => {
           <div className="flex flex-col gap-1">
             <StyledH5Heading fontColor="text-yellow" content="How To Use Your NeanderBros Avatar" />
             <p className="text-white text-sm opacity-70">
-              Watch the step-by-step tutorial to get your NeanderBros avatar set up and running
-              inside TCG World in minutes.
+              Ready to jump in? Watch the step-by-step tutorial to get your NeanderBros avatar set up
+              and running inside TCG World. Get set up in minutes and start exploring as your NeanderBro.
             </p>
           </div>
           <div className="aspect-video w-full">
@@ -127,13 +141,28 @@ const TCGWorldSection = () => {
           </div>
         </div>
 
+        {/* Stone Hut Utility */}
+        <div className="flex flex-col gap-4">
+          <div className="flex flex-col gap-1">
+            <StyledH5Heading fontColor="text-yellow" content="Stone Hut Utility — Coming Soon" />
+            <p className="text-white text-sm opacity-70">
+              The NeanderBros Stone Hut is a planned in-world utility item for holders inside TCG World.
+              By holding a NeanderBros NFT, players will be able to place a custom NeanderBros Stone Hut
+              structure onto their own TCG World virtual land plots — giving holders a unique way to
+              represent the tribe directly within the metaverse. More than just decoration, the Stone Hut
+              is designed to become a recognizable symbol of the NeanderBros presence across TCG World
+              as our community expands throughout the world.
+            </p>
+          </div>
+        </div>
+
         {/* Community Events — hype block */}
         <div className="flex flex-col gap-6">
           <div className="flex flex-col gap-1">
             <span className="text-xs font-bold tracking-widest uppercase text-yellow opacity-60">
               What's Coming
             </span>
-            <StyledH5Heading fontColor="text-white" content="Community Events & Future Utility" />
+            <StyledH5Heading fontColor="text-white" content="Community Events & Metaverse Expansion" />
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -154,7 +183,7 @@ const TCGWorldSection = () => {
           </div>
 
           <p className="text-yellow text-sm font-semibold opacity-70 mt-2">
-            More is coming — and early holders will be first in line.
+            The tribe is just getting started — and early holders will help shape what comes next.
           </p>
         </div>
 
@@ -179,6 +208,7 @@ const TCGWorldSection = () => {
           </div>
           <p className="text-white text-sm italic opacity-50">
             From the wild lands of Az'Kalon to the metaverse of TCG World — the tribe is evolving.
+            Now it's your turn to step into the world.
           </p>
         </div>
 

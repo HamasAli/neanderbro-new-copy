@@ -237,8 +237,8 @@ export const content = {
       url: "/assets/1 Homepage/tribes.gif",
     },
     {
-      head: "4000 Unique NFTs",
-      para: "NeanderBros is more than a 4,000-piece NFT collection. It is a growing ecosystem built around lore, gaming, music, and real utility inside Web3 environments. Our mission is to bring holders together through shared experiences blending storytelling, metaverse gameplay, and community-driven expansion into a true digital identity.",
+      head: "The Tribe",
+      para: "NeanderBros is more than a 4,000-piece NFT collection. It is a growing ecosystem built around lore, gaming, music, and real utility inside Web3 environments. Our mission is to bring holders together through shared experiences — blending storytelling, metaverse gameplay, and community-driven expansion into a true digital identity.",
       url: "/assets/1 Homepage/unique-nfts.gif",
     },
   ],
