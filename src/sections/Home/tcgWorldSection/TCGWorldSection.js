@@ -145,13 +145,17 @@ const TCGWorldSection = () => {
         <div className="flex flex-col gap-4">
           <div className="flex flex-col gap-1">
             <StyledH5Heading fontColor="text-yellow" content="Stone Hut Utility — Coming Soon" />
+            <p className="text-white font-semibold text-sm mt-1">Your Plot. Your Tribe. Your Presence.</p>
             <p className="text-white text-sm opacity-70">
-              The NeanderBros Stone Hut is a planned in-world utility item for holders inside TCG World.
-              By holding a NeanderBros NFT, players will be able to place a custom NeanderBros Stone Hut
-              structure onto their own TCG World virtual land plots — giving holders a unique way to
-              represent the tribe directly within the metaverse. More than just decoration, the Stone Hut
-              is designed to become a recognizable symbol of the NeanderBros presence across TCG World
-              as our community expands throughout the world.
+              The NeanderBros Stone Hut is being designed as more than a simple cosmetic structure — it
+              represents digital ownership, identity, and tribal presence inside TCG World. Holders will
+              be able to deploy a recognizable NeanderBros structure directly onto their own land plots,
+              helping transform empty land into living tribal territory across the metaverse.
+            </p>
+            <p className="text-white text-sm opacity-70 mt-2">
+              As more holders establish Stone Huts throughout TCG World, the NeanderBros tribe itself
+              becomes visible and organically woven into the world map — creating a growing network of
+              community landmarks, gathering points, and recognizable tribe locations.
             </p>
           </div>
         </div>
@@ -160,7 +164,7 @@ const TCGWorldSection = () => {
         <div className="flex flex-col gap-6">
           <div className="flex flex-col gap-1">
             <span className="text-xs font-bold tracking-widest uppercase text-yellow opacity-60">
-              What's Coming
+              In The Works
             </span>
             <StyledH5Heading fontColor="text-white" content="Community Events & Metaverse Expansion" />
           </div>
