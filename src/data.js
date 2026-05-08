@@ -238,7 +238,7 @@ export const content = {
     },
     {
       head: "4000 Unique NFTs",
-      para: "Now WE get to experience the world of NeanderBros, in the form of a randomly generated collection of 4000 unique NFTs. Similar to the goal of each individual tribe, the goal of the NeanderBros community is grow into a family where each member sees not only each other as a member of their Tribe, but every being on this planet we inhabit as human beings.",
+      para: "NeanderBros is more than a 4,000-piece NFT collection. It is a growing ecosystem built around lore, gaming, music, and real utility inside Web3 environments. Our mission is to bring holders together through shared experiences blending storytelling, metaverse gameplay, and community-driven expansion into a true digital identity.",
       url: "/assets/1 Homepage/unique-nfts.gif",
     },
   ],

@@ -115,7 +115,7 @@ const AzkalonSection = () => {
               fontColor={"text-gray"}
               fontBold={'font-bold'}
               content={
-                "The NeanderBros are an intelligent species of caveman looking beings inhabiting the dinosaur ridden land of Az'Kalon. Although the NeanderBros were at first human looking beings (HumanBros), generations of expanding across, and inhabiting different regions of Az'Kalon have resulted in the evolution of 3 other races: MerBros, RockBros, and BirdBros. There is very little communication between the 4 tribes, but each tribe is aware of the existence of the other three Tribes."
+                "The NeanderBros are an intelligent species of caveman-looking beings from the dinosaur-ridden land of Az'Kalon. What began as one tribe of HumanBros evolved over generations into four distinct races: HumanBros, MerBros, RockBros, and BirdBros. Each tribe protects its own region, survives the wild, and carries forward the same belief: every Bro is part of something bigger — the tribe, the family, and the world they help build."
               }
             />
           </div>

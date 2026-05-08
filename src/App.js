@@ -6,12 +6,14 @@ import Header from "./components/header/Header";
 import Footer from "./components/footer/Footer";
 import ScrollToTop from "./components/scrollToTOp/scrollToTop";
 import { PathProvider } from "./context/PathContext";
+import MusicPlayer from "./components/musicPlayer/MusicPlayer";
 
 export default function App() {
   return (
     <BrowserRouter>
       <PathProvider>
         <Header />
+        <MusicPlayer />
         <Router />
         <ScrollToTop />
         <Footer />

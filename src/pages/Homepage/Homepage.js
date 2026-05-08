@@ -4,6 +4,7 @@ import MintNowSection from "../../sections/Home/mintNowSection/MintNowSection";
 import DinasourSection from "../../sections/Home/dinasourSection/DinasourSection";
 import AzkalonSection from "../../sections/Home/azkalonSection/AzkalonSection";
 import TribeSection from "../../sections/Home/tribeSection/TribeSection";
+import TCGWorldSection from "../../sections/Home/tcgWorldSection/TCGWorldSection";
 import SocialCommunitySection from "../../sections/Home/socialCommunitySection/SocialCommunitySection";
 import SwiperSection from "../../components/Swiper/Swiper";
 import Loader from "../../components/Loader/Loader";
@@ -38,6 +39,7 @@ const Homepage = () => {
         <MintNowSection />
         <AzkalonSection />
         <TribeSection />
+        <TCGWorldSection />
         <DinasourSection />
         <MintIsLiveSection />
         <SocialCommunitySection />
